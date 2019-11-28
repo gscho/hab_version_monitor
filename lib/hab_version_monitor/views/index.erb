@@ -1,0 +1,22 @@
+<% @pkgs.each do |k,v| %>
+<h1><%= k %></h1>
+<br/>
+<div class="row">
+  <% v.each do |pkg| %>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Origin: <%= pkg['origin'] %></h5>
+        <h6 class="card-subtitle"><span class="badge badge-info">Channel: <%= pkg['channel'] %></span></h6>
+        <p class="card-text">
+          Version: <%= [pkg['ident']['version'], pkg['ident']['release']].join('/') %>
+          Updated: <%= Time.parse(pkg['created_at']).strftime('%d/%m/%Y %I:%M %p') %>
+        </p>
+        <a href="https:/<%= @bldr_url %>/#/pkgs/<%= pkg['ident_array'].join('/') %>" class="card-link btn btn-dark">View</a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  </div>
+<% end %>
+<meta http-equiv="refresh" content="<%= @refresh_interval_seconds %>" />

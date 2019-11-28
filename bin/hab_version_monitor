@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'hab_version_monitor/server'
+HabVersionMonitor::Server.run!
