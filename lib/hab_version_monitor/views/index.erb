@@ -11,6 +11,7 @@
         <p class="card-text">
           Version: <%= [pkg['ident']['version'], pkg['ident']['release']].join('/') %>
           Updated: <%= Time.parse(pkg['created_at']).strftime('%d/%m/%Y %I:%M %p') %>
+          Target: <%= pkg['target'] %>
         </p>
         <a href="https:/<%= @bldr_url %>/#/pkgs/<%= pkg['ident_array'].join('/') %>" class="card-link btn btn-dark">View</a>
       </div>

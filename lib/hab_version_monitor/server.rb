@@ -16,7 +16,6 @@ module HabVersionMonitor
         @pkgs[pkg['name']] = []
         pkg['targets'].each do |target|
           pkg['channels'].each do |channel|
-            puts 'here!'
             uri = URI.parse("#{@bldr_url}/v1/depot/channels/#{pkg['origin']}/#{channel}/pkgs/#{pkg['name']}/latest?target=#{target}")
             response = Net::HTTP.get_response(uri)
             json = JSON.parse(response.body)
