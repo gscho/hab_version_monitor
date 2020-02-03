@@ -1,9 +1,11 @@
+<br>
 <% @pkgs.each do |k,v| %>
 <h1><%= k %></h1>
-<br/>
-<div class="row">
-  <% v.each do |pkg| %>
+<br>
+<div class="row" style= "background-color: grey;">
+  <% v.each_with_index do |pkg, idx| %>
   <div class="col">
+    <br>
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Origin: <%= pkg['origin'] %></h5>
@@ -16,8 +18,11 @@
         <a href="https:/<%= @bldr_url %>/#/pkgs/<%= pkg['ident_array'].join('/') %>" class="card-link btn btn-dark">View</a>
       </div>
     </div>
+    <% if idx % 4 == 0 %>
+     <br>
+    <% end %>
   </div>
   <% end %>
-  </div>
+</div>
 <% end %>
 <meta http-equiv="refresh" content="<%= @refresh_interval_seconds %>" />
