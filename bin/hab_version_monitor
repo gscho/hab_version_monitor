@@ -1,4 +1,14 @@
 #!/usr/bin/env ruby
 
-require 'hab_version_monitor/server'
+require 'hab_version_monitor'
+require 'optparse'
+
+parser = OptionParser.new do |opt|
+opt.on('-c config', 'set the config file path (default is "./config")') do |val|
+    ENV['HVM_CONFIG_PATH'] = val
+  end
+end
+
+parser.parse!(ARGV.dup)
+
 HabVersionMonitor::Server.run!
