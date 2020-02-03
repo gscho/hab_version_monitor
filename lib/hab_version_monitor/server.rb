@@ -7,9 +7,10 @@ require 'time'
 
 module HabVersionMonitor
   class Server < Sinatra::Base
+    configure { set :server, :puma }
     get '/' do
       @pkgs = {}
-      config = YAML.load_file('config.yml')
+      config = YAML.load_file(ENV.fetch('HVM_CONFIG_PATH', 'config.yml'))
       @bldr_url = config['bldr_url'] || 'https://bldr.habitat.sh'
       @refresh_interval_seconds  = config['refresh_interval_seconds'] || 30
       config['pkgs'].each do |pkg|
@@ -28,7 +29,7 @@ module HabVersionMonitor
     end
 
     get '/config' do
-      @config = YAML.load_file('config.yml')
+      @config = YAML.load_file(ENV.fetch('HVM_CONFIG_PATH', 'config.yml'))
       erb :config
     end
   end
