@@ -7,7 +7,11 @@ require 'time'
 
 module HabVersionMonitor
   class Server < Sinatra::Base
-    configure { set :server, :puma }
+    set :server, :puma
+    set :bind, '0.0.0.0'
+    set :port, 4567
+    set :environment, :production
+
     get '/' do
       @pkgs = {}
       config = YAML.load_file(ENV.fetch('HVM_CONFIG_PATH', 'config.yml'))

@@ -1,0 +1,26 @@
+bldr_url = "https://bldr.habitat.sh"
+refresh_interval_seconds = 30.0
+
+[[pkgs]]
+origin = "core"
+name = "hab"
+channels = [
+  "dev",
+  "acceptance",
+  "stable"
+]
+targets = [
+  "x86_64-windows",
+  "x86_64-linux"
+]
+
+[[pkgs]]
+origin = "core"
+name = "hab-sup"
+channels = [
+  "stable"
+]
+targets = [
+  "x86_64-windows",
+  "x86_64-linux"
+]

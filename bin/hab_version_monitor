@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'hab_version_monitor/server'
+require 'hab_version_monitor'
 require 'optparse'
 
 parser = OptionParser.new do |opt|
