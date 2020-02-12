@@ -1,5 +1,5 @@
-<br>
 <% @pkgs.each do |k,v| %>
+<br>
 <h1><%= k %></h1>
 <br>
 <div class="row" style= "background-color: grey;">
@@ -15,7 +15,7 @@
           Updated: <%= Time.parse(pkg['created_at']).strftime('%d/%m/%Y %I:%M %p') %>
           Target: <%= pkg['target'] %>
         </p>
-        <a href="https:/<%= @bldr_url %>/#/pkgs/<%= pkg['ident_array'].join('/') %>" class="card-link btn btn-dark">View</a>
+        <a href="<%= @bldr_url %>/#/pkgs/<%= pkg['ident_array'].join('/') %>" class="card-link btn btn-dark">View</a>
       </div>
     </div>
     <% if idx % 4 == 0 %>
