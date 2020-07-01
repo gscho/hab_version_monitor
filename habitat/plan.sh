@@ -37,6 +37,11 @@ do_install(){
   wrap_ruby_bin "hab_version_monitor"
 }
 
+do_after() {
+  echo $TEST_1
+  echo $TEST_2
+}
+
 wrap_ruby_bin() {
   local name="$1"
   local original="$pkg_prefix/ruby-bin/$name"
