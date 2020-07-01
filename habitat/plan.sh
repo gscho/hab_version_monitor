@@ -38,6 +38,7 @@ do_install(){
 }
 
 do_after() {
+  echo "XXXXXXXXXX"
   echo $TEST_1
   echo $TEST_2
 }
